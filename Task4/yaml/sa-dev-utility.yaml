@@ -1,0 +1,8 @@
+--- 
+apiVersion: v1 
+kind: ServiceAccount 
+metadata: 
+  name: dev-utility 
+  namespace: utility 
+  labels: 
+    role: developer 

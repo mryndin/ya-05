@@ -1,0 +1,19 @@
+apiVersion: v1 
+kind: NamespaceList 
+items: 
+- metadata: 
+    name: sales 
+    labels: 
+      domain: sales 
+- metadata: 
+    name: utility 
+    labels: 
+      domain: utility 
+- metadata: 
+    name: finance 
+    labels: 
+      domain: finance 
+- metadata: 
+    name: data-platform 
+    labels: 
+      domain: data 

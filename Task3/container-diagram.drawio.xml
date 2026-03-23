@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" version="24.8.0">
+<diagram name="C4 Containers - PropDevelopment + Smart Home" id="containers-smart-home">
+<mxGraphModel dx="4471" dy="1297" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2400" pageHeight="1600" math="0" shadow="0">
+<root>
+<mxCell id="0"/>
+<mxCell id="1" parent="0"/>
+
+<!-- ========== PROPDEVELOPMENT BOUNDARY ========== -->
+<mxCell id="propdev-boundary" value="PropDevelopment&#xa;[System Scope Boundary]" style="rounded=1;fontSize=11;whiteSpace=wrap;html=1;dashed=1;arcSize=20;fillColor=none;strokeColor=#666666;fontColor=#333333;labelBackgroundColor=none;align=left;verticalAlign=bottom;labelBorderColor=none;spacingTop=0;spacing=10;dashPattern=8 4;metaEdit=1;" vertex="1" parent="1">
+<mxGeometry x="-420" y="340" width="2600" height="1900" as="geometry"/>
+</mxCell>
+
+<!-- ========== EXISTING CONTAINERS (from original) ========== -->
+
+<!-- Auth Service -->
+<object placeholders="1" c4Name="auth-service-1" c4Type="Container" c4Technology="Keycloak" c4Description="Сервис аутентификации покупателей" label="&lt;font style=&quot;font-size: 14px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%: %c4Technology%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px&quot;&gt;&lt;font color=&quot;#E6E6E6&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="auth-service">
+<mxCell style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;labelBackgroundColor=none;fillColor=#23A2D9;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#0E7DAD;" vertex="1" parent="1">
+<mxGeometry x="910" y="510" width="220" height="100" as="geometry"/>
+</mxCell>
+</object>
+
+<!-- Auth DB -->
+<object placeholders="1" c4Name="auth-db-1" c4Type="Container" c4Technology="PostgreSQL" c4Description="База данных сервиса аутентификации" label="&lt;font style=&quot;font-size: 14px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%: %c4Technology%]&lt;/div&gt;" id="auth-db">
+<mxCell style="shape=cylinder3;size=15;whiteSpace=wrap;html=1;boundedLbl=1;rounded=0;labelBackgroundColor=none;fillColor=#23A2D9;fontSize=11;fontColor=#ffffff;align=center;strokeColor=#0E7DAD;" vertex="1" parent="1">
+<mxGeometry x="910" y="640" width="220" height="90" as="geometry"/>
+</mxCell>
+</object>
+
+<!-- Mobile App for Owners -->
+<object placeholders="1" c4Name="Витрина сервисов для собственников" c4Type="Container" c4Technology="Mobile app (iOS, Android)" c4Description="Мобильные приложения для собственников" label="&lt;font style=&quot;font-size: 14px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;" id="mobile-app-owners">
+<mxCell style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;labelBackgroundColor=none;fillColor=#23A2D9;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#0E7DAD;" vertex="1" parent="1">
+<mxGeometry x="1390" y="420" width="240" height="100" as="geometry"/>
+</mxCell>
+</object>
+
+<!-- Tenant Core App -->
+<object placeholders="1" c4Name="tenant-core-app" c4Type="Container" c4Technology="Kotlin, SpringBoot" c4Description="Приложение для предоставления услуг собственникам" label="&lt;font style=&quot;font-size: 14px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;" id="tenant-core-app">
+<mxCell style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;labelBackgroundColor=none;fillColor=#23A2D9;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#0E7DAD;" vertex="1" parent="1">
+<mxGeometry x="1170" y="580" width="220" height="100" as="geometry"/>
+</mxCell>
+</object>
+
+<!-- Tenant Core DB -->
+<object placeholders="1" c4Name="tenant-core-db" c4Type="Container" c4Technology="PostgreSQL" c4Description="База данных услуг ЖКХ по собственникам" label="&lt;font style=&quot;font-size: 14px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%: %c4Technology%]&lt;/div&gt;" id="tenant-core-db">
+<mxCell style="shape=cylinder3;size=15;whiteSpace=wrap;html=1;boundedLbl=1;rounded=0;labelBackgroundColor=none;fillColor=#23A2D9;fontSize=11;fontColor=#ffffff;align=center;strokeColor=#0E7DAD;" vertex="1" parent="1">
+<mxGeometry x="1170" y="710" width="220" height="90" as="geometry"/>
+</mxCell>
+</object>
+
+<!-- CRM for Owners -->
+<object placeholders="1" c4Name="CRM" c4Type="Container" c4Technology="Kotlin, Spring Boot" c4Description="Система управления данными собственников" label="&lt;font style=&quot;font-size: 14px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;" id="crm-owners">
+<mxCell style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;labelBackgroundColor=none;fillColor=#23A2D9;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#0E7DAD;" vertex="1" parent="1">
+<mxGeometry x="1610" y="680" width="220" height="100" as="geometry"/>
+</mxCell>
+</object>
+
+<!-- CRM Owners DB -->
+<object placeholders="1" c4Name="crm-tenant-db" c4Type="Container" c4Technology="PostgreSQL" c4Description="База данных CRM по собственникам" label="&lt;font style=&quot;font-size: 14px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%: %c4Technology%]&lt;/div&gt;" id="crm-tenant-db">
+<mxCell style="shape=cylinder3;size=15;whiteSpace=wrap;html=1;boundedLbl=1;rounded=0;labelBackgroundColor=none;fillColor=#23A2D9;fontSize=11;fontColor=#ffffff;align=center;strokeColor=#0E7DAD;" vertex="1" parent="1">
+<mxGeometry x="1610" y="810" width="220" height="90" as="geometry"/>
+</mxCell>
+</object>
+
+<!-- Sales Showcase -->
+<object placeholders="1" c4Name="Витрина продаж" c4Type="Container" c4Technology="JavaScript, React" c4Description="Витрина для подбора и бронирования объектов" label="&lt;font style=&quot;font-size: 14px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;" id="sales-showcase">
+<mxCell style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;labelBackgroundColor=none;fillColor=#23A2D9;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#0E7DAD;" vertex="1" parent="1">
+<mxGeometry x="330" y="370" width="220" height="100" as="geometry"/>
+</mxCell>
+</object>
+
+<!-- Client Mart App -->
+<object placeholders="1" c4Name="client-mart-app" c4Type="Container" c4Technology="Kotlin, SpringBoot" c4Description="Приложение для онлайн-сделок" label="&lt;font style=&quot;font-size: 14px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;" id="client-mart-app">
+<mxCell style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;labelBackgroundColor=none;fillColor=#23A2D9;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#0E7DAD;" vertex="1" parent="1">
+<mxGeometry x="330" y="550" width="220" height="100" as="geometry"/>
+</mxCell>
+</object>
+
+<!-- Client Mart DB -->
+<object placeholders="1" c4Name="client-mart-db" c4Type="Container" c4Technology="PostgreSQL" c4Description="База данных объектов и сделок" label="&lt;font style=&quot;font-size: 14px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%: %c4Technology%]&lt;/div&gt;" id="client-mart-db">
+<mxCell style="shape=cylinder3;size=15;whiteSpace=wrap;html=1;boundedLbl=1;rounded=0;labelBackgroundColor=none;fillColor=#23A2D9;fontSize=11;fontColor=#ffffff;align=center;strokeColor=#0E7DAD;" vertex="1" parent="1">
+<mxGeometry x="330" y="680" width="220" height="90" as="geometry"/>
+</mxCell>
+</object>
+
+<!-- Client CRM App -->
+<object placeholders="1" c4Name="client-crm-app" c4Type="Container" c4Technology="SpringBoot" c4Description="Система управления клиентскими данными" label="&lt;font style=&quot;font-size: 14px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;" id="client-crm-app">
+<mxCell style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;labelBackgroundColor=none;fillColor=#23A2D9;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#0E7DAD;" vertex="1" parent="1">
+<mxGeometry x="330" y="880" width="220" height="100" as="geometry"/>
+</mxCell>
+</object>
+
+<!-- Client CRM DB -->
+<object placeholders="1" c4Name="crm-db" c4Type="Container" c4Technology="MSSQL" c4Description="База данных системы CRM" label="&lt;font style=&quot;font-size: 14px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%: %c4Technology%]&lt;/div&gt;" id="client-crm-db">
+<mxCell style="shape=cylinder3;size=15;whiteSpace=wrap;html=1;boundedLbl=1;rounded=0;labelBackgroundColor=none;fillColor=#23A2D9;fontSize=11;fontColor=#ffffff;align=center;strokeColor=#0E7DAD;" vertex="1" parent="1">
+<mxGeometry x="330" y="1010" width="220" height="90" as="geometry"/>
+</mxCell>
+</object>
+
+<!-- Client Tour App -->
+<object placeholders="1" c4Name="client-tour-app" c4Type="Container" c4Technology="Kotlin, SpringBoot" c4Description="Приложение для онлайн-тура" label="&lt;font style=&quot;font-size: 14px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;" id="client-tour-app">
+<mxCell style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;labelBackgroundColor=none;fillColor=#23A2D9;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#0E7DAD;" vertex="1" parent="1">
+<mxGeometry x="650" y="550" width="220" height="100" as="geometry"/>
+</mxCell>
+</object>
+
+<!-- Client Tour DB -->
+<object placeholders="1" c4Name="client-tour-db" c4Type="Container" c4Technology="PostgreSQL" c4Description="База данных онлайн-тура" label="&lt;font style=&quot;font-size: 14px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%: %c4Technology%]&lt;/div&gt;" id="client-tour-db">
+<mxCell style="shape=cylinder3;size=15;whiteSpace=wrap;html=1;boundedLbl=1;rounded=0;labelBackgroundColor=none;fillColor=#23A2D9;fontSize=11;fontColor=#ffffff;align=center;strokeColor=#0E7DAD;" vertex="1" parent="1">
+<mxGeometry x="650" y="680" width="220" height="90" as="geometry"/>
+</mxCell>
+</object>
+
+<!-- Client Mart Estate App -->
+<object placeholders="1" c4Name="client-mart-estate-app" c4Type="Container" c4Technology="Kotlin, SpringBoot" c4Description="Управление данными об объектах" label="&lt;font style=&quot;font-size: 14px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;" id="client-mart-estate-app">
+<mxCell style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;labelBackgroundColor=none;fillColor=#23A2D9;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#0E7DAD;" vertex="1" parent="1">
+<mxGeometry x="10" y="550" width="220" height="100" as="geometry"/>
+</mxCell>
+</object>
+
+<!-- Client Mart Estate DB -->
+<object placeholders="1" c4Name="client-mart-estate-db" c4Type="Container" c4Technology="PostgreSQL" c4Description="База данных объектов недвижимости" label="&lt;font style=&quot;font-size: 14px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%: %c4Technology%]&lt;/div&gt;" id="client-mart-estate-db">
+<mxCell style="shape=cylinder3;size=15;whiteSpace=wrap;html=1;boundedLbl=1;rounded=0;labelBackgroundColor=none;fillColor=#23A2D9;fontSize=11;fontColor=#ffffff;align=center;strokeColor=#0E7DAD;" vertex="1" parent="1">
+<mxGeometry x="10" y="680" width="220" height="90" as="geometry"/>
+</mxCell>
+</object>
+
+<!-- Data Warehouse -->
+<object placeholders="1" c4Name="Хранилище данных" c4Type="Container" c4Technology="Greenplum" c4Description="Единое хранилище данных" label="&lt;font style=&quot;font-size: 14px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%: %c4Technology%]&lt;/div&gt;" id="dwh">
+<mxCell style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;labelBackgroundColor=none;fillColor=#23A2D9;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#0E7DAD;" vertex="1" parent="1">
+<mxGeometry x="605" y="1380" width="220" height="100" as="geometry"/>
+</mxCell>
+</object>
+
+<!-- DWH Physical Storage -->
+<object placeholders="1" c4Name="DWH Хранилище" c4Type="Container" c4Technology="S3" c4Description="Физическое хранилище данных" label="&lt;font style=&quot;font-size: 14px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%: %c4Technology%]&lt;/div&gt;" id="dwh-storage">
+<mxCell style="shape=cylinder3;size=15;whiteSpace=wrap;html=1;boundedLbl=1;rounded=0;labelBackgroundColor=none;fillColor=#23A2D9;fontSize=11;fontColor=#ffffff;align=center;strokeColor=#0E7DAD;" vertex="1" parent="1">
+<mxGeometry x="605" y="1510" width="220" height="90" as="geometry"/>
+</mxCell>
+</object>
+
+<!-- Active Directory (Finance) -->
+<object placeholders="1" c4Name="Active Directory" c4Type="Container" c4Technology="MS Active Directory" c4Description="Служба каталогов для финансовых сервисов" label="&lt;font style=&quot;font-size: 14px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;" id="ad-finance">
+<mxCell style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;labelBackgroundColor=none;fillColor=#23A2D9;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#0E7DAD;" vertex="1" parent="1">
+<mxGeometry x="-320" y="1239" width="220" height="100" as="geometry"/>
+</mxCell>
+</object>
+
+<!-- Active Directory (General) -->
+<object placeholders="1" c4Name="Active Directory" c4Type="Container" c4Technology="MS Active Directory" c4Description="Служба каталогов для бизнес-систем" label="&lt;font style=&quot;font-size: 14px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;" id="ad-general">
+<mxCell style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;labelBackgroundColor=none;fillColor=#23A2D9;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#0E7DAD;" vertex="1" parent="1">
+<mxGeometry x="30" y="1920" width="220" height="100" as="geometry"/>
+</mxCell>
+</object>
+
+<!-- Accountant Service -->
+<object placeholders="1" c4Name="accountant-service-1" c4Type="Container" c4Technology="Keycloak" c4Description="Система бухгалтерского учёта" label="&lt;font style=&quot;font-size: 14px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;" id="accountant-service">
+<mxCell style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;labelBackgroundColor=none;fillColor=#23A2D9;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#0E7DAD;" vertex="1" parent="1">
+<mxGeometry x="-300" y="1620" width="220" height="100" as="geometry"/>
+</mxCell>
+</object>
+
+<!-- ========== NEW CONTAINERS FOR SMART HOME ========== -->
+
+<!-- Smart Home API Gateway -->
+<object placeholders="1" c4Name="smart-home-api-gateway" c4Type="Container" c4Technology="Kong / Spring Cloud Gateway" c4Description="Единая точка входа для интеграции с партнёром «Умный дом»" label="&lt;font style=&quot;font-size: 14px&quot;&gt;&lt;b&gt;🔐 smart-home-api-gateway&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[API Gateway]%&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font color=&quot;#ffc107&quot;&gt;• mTLS termination&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#ffc107&quot;&gt;• OAuth 2.0 validation&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#ffc107&quot;&gt;• Rate limiting&lt;/font&gt;&lt;/div&gt;" id="smart-home-gateway">
+<mxCell style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;labelBackgroundColor=none;fillColor=#fd7e14;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#e66a00;strokeWidth=2;" vertex="1" parent="1">
+<mxGeometry x="1650" y="420" width="260" height="120" as="geometry"/>
+</mxCell>
+</object>
+
+<!-- Smart Home Module (inside Mobile App) -->
+<object placeholders="1" c4Name="Smart Home Module" c4Type="Module" c4Technology="Native iOS/Android SDK" c4Description="Модуль управления устройствами умного дома в мобильном приложении" label="&lt;font style=&quot;font-size: 13px&quot;&gt;&lt;b&gt;📱 Smart Home Module&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[Mobile Module]%&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font color=&quot;#28a745&quot;&gt;• Управление домофоном&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#28a745&quot;&gt;• Управление шлагбаумом&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#28a745&quot;&gt;• Биометрия (локально)&lt;/font&gt;&lt;/div&gt;" id="smart-home-module">
+<mxCell style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;labelBackgroundColor=none;fillColor=#28a745;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#218838;strokeWidth=2;" vertex="1" parent="1">
+<mxGeometry x="1420" y="450" width="200" height="90" as="geometry"/>
+</mxCell>
+</object>
+
+<!-- Smart Home DB -->
+<object placeholders="1" c4Name="smart-home-db" c4Type="Container" c4Technology="PostgreSQL + pgcrypto" c4Description="Хранение токенов доступа, истории событий, хэшей номеров авто" label="&lt;font style=&quot;font-size: 14px&quot;&gt;&lt;b&gt;🔐 smart-home-db&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[PostgreSQL + TDE]%&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font color=&quot;#ffc107&quot;&gt;• Токены доступа (AES-256)&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#ffc107&quot;&gt;• История событий (аудит)&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#ffc107&quot;&gt;• Хэши номеров авто (SHA-256)&lt;/font&gt;&lt;/div&gt;" id="smart-home-db">
+<mxCell style="shape=cylinder3;size=15;whiteSpace=wrap;html=1;boundedLbl=1;rounded=0;labelBackgroundColor=none;fillColor=#fd7e14;fontSize=11;fontColor=#ffffff;align=center;strokeColor=#e66a00;strokeWidth=2;" vertex="1" parent="1">
+<mxGeometry x="1650" y="570" width="260" height="100" as="geometry"/>
+</mxCell>
+</object>
+
+<!-- ========== EXTERNAL SYSTEMS ========== -->
+
+<!-- Smart Home Partner -->
+<mxCell id="partner-boundary" value="Партнёр «Умный дом»&#xa;[External System Boundary]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#8C8496;strokeWidth=2;dashed=1;align=center;fontSize=12;" vertex="1" parent="1">
+<mxGeometry x="2100" y="300" width="350" height="400" as="geometry"/>
+</mxCell>
+
+<!-- Partner: Intercom Service -->
+<mxCell id="partner-intercom" value="🎥 Intercom Service&#xa;[Face Recognition API]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6c757d;fontColor=#ffffff;align=center;strokeColor=#5a6268;" vertex="1" parent="1">
+<mxGeometry x="2150" y="350" width="250" height="80" as="geometry"/>
+</mxCell>
+
+<!-- Partner: Barrier Service -->
+<mxCell id="partner-barrier" value="🚗 Barrier Service&#xa;[Plate Recognition API]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6c757d;fontColor=#ffffff;align=center;strokeColor=#5a6268;" vertex="1" parent="1">
+<mxGeometry x="2150" y="460" width="250" height="80" as="geometry"/>
+</mxCell>
+
+<!-- Partner: Biometric Storage (External) -->
+<mxCell id="partner-bio-storage" value="🔐 Biometric Storage&#xa;[External - Partner Only]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dc3545;fontColor=#ffffff;align=center;strokeColor=#bd2130;fontStyle=1;" vertex="1" parent="1">
+<mxGeometry x="2150" y="570" width="250" height="70" as="geometry"/>
+</mxCell>
+
+<!-- ========== PERSONS ========== -->
+
+<!-- Owner Person -->
+<mxCell id="owner-person" value="Собственник&#xa;[Person]" style="shape=mxgraph.c4.person2;html=1;fillColor=#083F75;fontColor=#ffffff;align=center;" vertex="1" parent="1">
+<mxGeometry x="1410" y="30" width="100" height="100" as="geometry"/>
+</mxCell>
+
+<!-- Client Person -->
+<mxCell id="client-person" value="Клиент&#xa;[Person]" style="shape=mxgraph.c4.person2;html=1;fillColor=#083F75;fontColor=#ffffff;align=center;" vertex="1" parent="1">
+<mxGeometry x="350" y="40" width="100" height="100" as="geometry"/>
+</mxCell>
+
+<!-- ========== CONNECTIONS (Existing) ========== -->
+
+<!-- Auth Service ↔ Auth DB -->
+<mxCell id="auth-edge" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#23A2D9;" edge="1" parent="1" source="auth-service" target="auth-db">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="auth-edge-label" value="[JDBC]" style="text;html=1;align=center;fontSize=9;" vertex="1" parent="1">
+<mxGeometry x="980" y="620" width="60" height="20" as="geometry"/>
+</mxCell>
+
+<!-- Mobile App ↔ Auth Service -->
+<mxCell id="mobile-auth-edge" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#23A2D9;" edge="1" parent="1" source="mobile-app-owners" target="auth-service">
+<mxGeometry relative="1" as="geometry">
+<Array as="points">
+<mxPoint x="1390" y="470"/>
+<mxPoint x="1050" y="470"/>
+</Array>
+</mxGeometry>
+</mxCell>
+<mxCell id="mobile-auth-edge-label" value="OAuth 2.0 [REST]" style="text;html=1;align=center;fontSize=9;" vertex="1" parent="1">
+<mxGeometry x="1180" y="450" width="100" height="30" as="geometry"/>
+</mxCell>
+
+<!-- Mobile App ↔ Tenant Core -->
+<mxCell id="mobile-tenant-edge" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#23A2D9;" edge="1" parent="1" source="mobile-app-owners" target="tenant-core-app">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="mobile-tenant-edge-label" value="[REST]" style="text;html=1;align=center;fontSize=9;" vertex="1" parent="1">
+<mxGeometry x="1300" y="500" width="50" height="20" as="geometry"/>
+</mxCell>
+
+<!-- Tenant Core ↔ Tenant DB -->
+<mxCell id="tenant-db-edge" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#23A2D9;" edge="1" parent="1" source="tenant-core-app" target="tenant-core-db">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="tenant-db-edge-label" value="[JDBC]" style="text;html=1;align=center;fontSize=9;" vertex="1" parent="1">
+<mxGeometry x="1240" y="690" width="60" height="20" as="geometry"/>
+</mxCell>
+
+<!-- Tenant Core ↔ CRM Owners -->
+<mxCell id="tenant-crm-edge" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#23A2D9;" edge="1" parent="1" source="tenant-core-app" target="crm-owners">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="tenant-crm-edge-label" value="[REST]" style="text;html=1;align=center;fontSize=9;" vertex="1" parent="1">
+<mxGeometry x="1420" y="650" width="50" height="20" as="geometry"/>
+</mxCell>
+
+<!-- CRM Owners ↔ CRM Tenant DB -->
+<mxCell id="crm-tenant-db-edge" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#23A2D9;" edge="1" parent="1" source="crm-owners" target="crm-tenant-db">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+
+<!-- Sales Showcase ↔ Client Mart App -->
+<mxCell id="showcase-mart-edge" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#23A2D9;" edge="1" parent="1" source="sales-showcase" target="client-mart-app">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="showcase-mart-edge-label" value="[REST]" style="text;html=1;align=center;fontSize=9;" vertex="1" parent="1">
+<mxGeometry x="440" y="490" width="50" height="20" as="geometry"/>
+</mxCell>
+
+<!-- Client Mart App ↔ Client Mart DB -->
+<mxCell id="mart-db-edge" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#23A2D9;" edge="1" parent="1" source="client-mart-app" target="client-mart-db">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+
+<!-- Client CRM App ↔ Client CRM DB -->
+<mxCell id="client-crm-db-edge" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#23A2D9;" edge="1" parent="1" source="client-crm-app" target="client-crm-db">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+
+<!-- CDC to DWH (simplified) -->
+<mxCell id="cdc-edge" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#6c757d;dashed=1;" edge="1" parent="1" source="client-mart-db" target="dwh">
+<mxGeometry relative="1" as="geometry">
+<Array as="points">
+<mxPoint x="450" y="800"/>
+<mxPoint x="650" y="800"/>
+<mxPoint x="650" y="1380"/>
+</Array>
+</mxGeometry>
+</mxCell>
+<mxCell id="cdc-edge-label" value="[CDC]" style="text;html=1;align=center;fontSize=9;" vertex="1" parent="1">
+<mxGeometry x="550" y="1100" width="50" height="20" as="geometry"/>
+</mxCell>
+
+<!-- ========== NEW CONNECTIONS FOR SMART HOME ========== -->
+
+<!-- Owner → Mobile App -->
+<mxCell id="owner-mobile-edge" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#083F75;strokeWidth=2;" edge="1" parent="1" source="owner-person" target="mobile-app-owners">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="owner-mobile-edge-label" value="Использует приложение" style="text;html=1;align=center;fontSize=10;" vertex="1" parent="1">
+<mxGeometry x="1480" y="160" width="120" height="30" as="geometry"/>
+</mxCell>
+
+<!-- Smart Home Module → Smart Home API Gateway -->
+<mxCell id="module-gateway-edge" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#fd7e14;strokeWidth=2;" edge="1" parent="1" source="smart-home-module" target="smart-home-gateway">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="module-gateway-edge-label" value="Internal API&#xa;[gRPC/REST]" style="text;html=1;align=center;fontSize=9;fontColor=#fd7e14;" vertex="1" parent="1">
+<mxGeometry x="1630" y="470" width="80" height="40" as="geometry"/>
+</mxCell>
+
+<!-- Smart Home API Gateway ↔ Smart Home DB -->
+<mxCell id="gateway-db-edge" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#fd7e14;strokeWidth=2;" edge="1" parent="1" source="smart-home-gateway" target="smart-home-db">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="gateway-db-edge-label" value="[JDBC + TDE]" style="text;html=1;align=center;fontSize=9;" vertex="1" parent="1">
+<mxGeometry x="1740" y="560" width="90" height="20" as="geometry"/>
+</mxCell>
+
+<!-- Smart Home API Gateway → Partner (Secure) -->
+<mxCell id="gateway-partner-edge" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#dc3545;strokeWidth=2;dashed=1;" edge="1" parent="1" source="smart-home-gateway" target="partner-boundary">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="gateway-partner-edge-label" value="🔐 HTTPS + mTLS&#xa;OAuth 2.0 Client Credentials&#xa;[REST/JSON]" style="text;html=1;align=center;fontSize=9;fontColor=#dc3545;" vertex="1" parent="1">
+<mxGeometry x="1930" y="450" width="140" height="70" as="geometry"/>
+</mxCell>
+
+<!-- Partner Intercom ↔ Partner Barrier (internal) -->
+<mxCell id="partner-internal-edge" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#6c757d;" edge="1" parent="1" source="partner-intercom" target="partner-barrier">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+
+<!-- Partner Services ↔ Biometric Storage -->
+<mxCell id="partner-bio-edge" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#dc3545;dashed=1;" edge="1" parent="1" source="partner-intercom" target="partner-bio-storage">
+<mxGeometry relative="1" as="geometry"/>
+</mxCell>
+<mxCell id="partner-bio-edge-label" value="Биометрия&#xa;(только у партнёра)" style="text;html=1;align=center;fontSize=9;fontColor=#dc3545;" vertex="1" parent="1">
+<mxGeometry x="2220" y="450" width="120" height="40" as="geometry"/>
+</mxCell>
+
+<!-- Tenant Core ↔ Smart Home Gateway (for events) -->
+<mxCell id="tenant-gateway-edge" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#fd7e14;" edge="1" parent="1" source="tenant-core-app" target="smart-home-gateway">
+<mxGeometry relative="1" as="geometry">
+<Array as="points">
+<mxPoint x="1450" y="630"/>
+<mxPoint x="1650" y="630"/>
+<mxPoint x="1650" y="480"/>
+</Array>
+</mxGeometry>
+</mxCell>
+<mxCell id="tenant-gateway-edge-label" value="События доступа&#xa;[Kafka/Async]" style="text;html=1;align=center;fontSize=9;" vertex="1" parent="1">
+<mxGeometry x="1520" y="580" width="100" height="40" as="geometry"/>
+</mxCell>
+
+<!-- ========== FIREWALLS (from original) ========== -->
+
+<!-- Firewall 1 -->
+<mxCell id="firewall-1" value="" style="image;html=1;image=img/lib/clip_art/networking/Firewall_02_128x128.png" vertex="1" parent="1">
+<mxGeometry x="410" y="250" width="60" height="60" as="geometry"/>
+</mxCell>
+<mxCell id="firewall-1-label" value="Firewall" style="text;html=1;align=center;fontSize=10;" vertex="1" parent="1">
+<mxGeometry x="420" y="315" width="60" height="20" as="geometry"/>
+</mxCell>
+
+<!-- Firewall 2 -->
+<mxCell id="firewall-2" value="" style="image;html=1;image=img/lib/clip_art/networking/Firewall_02_128x128.png" vertex="1" parent="1">
+<mxGeometry x="1470" y="250" width="60" height="60" as="geometry"/>
+</mxCell>
+<mxCell id="firewall-2-label" value="Firewall" style="text;html=1;align=center;fontSize=10;" vertex="1" parent="1">
+<mxGeometry x="1480" y="315" width="60" height="20" as="geometry"/>
+</mxCell>
+
+<!-- ========== LEGEND & BADGES ========== -->
+
+<!-- Legend -->
+<mxCell id="legend" value="📋 Легенда:&#xa;🔵 Стандартный контейнер&#xa;🟠 Новый контейнер (Smart Home)&#xa;⚫ Внешняя система&#xa;🔴 Критический компонент (биометрия)&#xa;🔐 Требует особого контроля" style="text;html=1;align=left;fontSize=10;fillColor=#f8f9fa;strokeColor=#dee2e6;" vertex="1" parent="1">
+<mxGeometry x="-380" y="2050" width="280" height="120" as="geometry"/>
+</mxCell>
+
+<!-- Security Requirements Badge -->
+<mxCell id="security-req" value="🔐 Требования к интеграции:&#xa;• Биометрия не хранится в PropDevelopment&#xa;• mTLS для всех внешних вызовов&#xa;• OAuth 2.0 Client Credentials&#xa;• Rate limiting: 100 req/min&#xa;• Аудит всех операций доступа&#xa;• 152-ФЗ: согласие на обработку ПДн" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3cd;fontColor=#856404;align=left;fontSize=10;strokeColor=#ffc107;" vertex="1" parent="1">
+<mxGeometry x="2100" y="2050" width="320" height="120" as="geometry"/>
+</mxCell>
+
+</root>
+</mxGraphModel>
+</diagram>
+</mxfile>

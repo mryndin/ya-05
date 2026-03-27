@@ -1,0 +1,1 @@
+cat: /var/log/audit.log: No such file or directory

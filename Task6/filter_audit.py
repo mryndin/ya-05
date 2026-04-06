@@ -1,46 +1,67 @@
 import json
-import os
 
-def filter_audit():
-    incidents = []
-    if not os.path.exists('audit.log'):
-        print("Error: audit.log not found!")
-        return
+audit_log_path = "audit.log"
+output_json_path = "audit-extract.json"
 
-    with open('audit.log', 'r', encoding='utf-8') as f:
-        for line in f:
+suspicious_events = []
+
+try:
+    with open(audit_log_path, "r") as file:
+        for line in file:
             try:
                 event = json.loads(line)
-                is_suspicious = False
-                
-                # Фильтр 1: Доступ к секретам
-                if event.get('objectRef', {}).get('resource') == 'secrets':
-                    is_suspicious = True
-                
-                # Фильтр 2: Привилегированные поды
-                elif event.get('requestObject', {}).get('kind') == 'Pod':
-                    containers = event['requestObject'].get('spec', {}).get('containers', [])
-                    if any(c.get('securityContext', {}).get('privileged') for c in containers):
-                        is_suspicious = True
-
-                # Фильтр 3: Exec в поды
-                elif event.get('objectRef', {}).get('subresource') == 'exec':
-                    is_suspicious = True
-
-                # Фильтр 4: Создание RoleBinding к админу
-                elif event.get('objectRef', {}).get('resource') == 'rolebindings':
-                    req = event.get('requestObject', {})
-                    if req and req.get('roleRef', {}).get('name') == 'cluster-admin':
-                        is_suspicious = True
-
-                if is_suspicious:
-                    incidents.append(event)
-            except:
+            except json.JSONDecodeError:
                 continue
 
-    with open('audit-extract.json', 'w', encoding='utf-8') as out:
-        json.dump(incidents, out, indent=2, ensure_ascii=False)
-    print(f"Extraction complete. Found {len(incidents)} suspicious events.")
+            user_info = event.get("user", {})
+            username = user_info.get("username", "")
+            object_ref = event.get("objectRef", {}) or {}
+            namespace = object_ref.get("namespace", "")
+            resource = object_ref.get("resource", "")
+            verb = event.get("verb", "")
 
-if __name__ == "__main__":
-    filter_audit()
+            is_suspicious = False
+
+            # 1. Запросы от имени сервисного аккаунта monitoring или активность в secure-ops
+            if "monitoring" in username or namespace == "secure-ops":
+                is_suspicious = True
+
+            # 2. Попытки выполнения команд (exec) в системных подах
+            if object_ref.get("subresource") == "exec":
+                is_suspicious = True
+
+            # 3. Попытки чтения секретов в kube-system
+            if resource == "secrets" and namespace == "kube-system":
+                is_suspicious = True
+
+            # 4. Попытки создания привилегированных контейнеров
+            req_object = event.get("requestObject", {}) or {}
+            if req_object and "spec" in req_object:
+                containers = req_object["spec"].get("containers", [])
+                for container in containers:
+                    if (
+                        container.get("securityContext", {}).get("privileged")
+                        is True
+                    ):
+                        is_suspicious = True
+                        break
+
+            # 5. Назначение роли cluster-admin
+            if resource in ["rolebindings", "clusterrolebindings"]:
+                is_suspicious = True
+
+            if is_suspicious:
+                suspicious_events.append(event)
+
+    # Сохранение выжимки в файл
+    with open(output_json_path, "w", encoding="utf-8") as out_file:
+        json.dump(suspicious_events, out_file, indent=2, ensure_ascii=False)
+
+    print(
+        f"Анализ завершен. Найдено {len(suspicious_events)} подозрительных событий. Выгружено в {output_json_path}"
+    )
+
+except FileNotFoundError:
+    print(
+        f"Файл {audit_log_path} не найден. Убедитесь, что вы скопировали лог в текущую папку под этим именем."
+    )

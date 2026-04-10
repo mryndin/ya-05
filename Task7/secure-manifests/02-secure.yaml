@@ -7,14 +7,32 @@ spec:
   securityContext:
     runAsNonRoot: true
     runAsUser: 101
+    seccompProfile:
+      type: RuntimeDefault
   containers:
     - name: nginx
       image: nginxinc/nginx-unprivileged:latest
       securityContext:
+        runAsNonRoot: true
         allowPrivilegeEscalation: false
         capabilities:
           drop: ["ALL"]
         readOnlyRootFilesystem: true
+      volumeMounts:
+        - name: tmp-volume
+          mountPath: /tmp
+        - name: cache-volume
+          mountPath: /var/cache/nginx
+        - name: run-volume
+          mountPath: /var/run
+        - name: safe-storage
+          mountPath: /mnt/data
   volumes:
-  - name: safe-storage
-    emptyDir: {}
+    - name: tmp-volume
+      emptyDir: {}
+    - name: cache-volume
+      emptyDir: {}
+    - name: run-volume
+      emptyDir: {}
+    - name: safe-storage
+      emptyDir: {}

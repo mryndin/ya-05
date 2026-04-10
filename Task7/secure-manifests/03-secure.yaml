@@ -1,12 +1,35 @@
-apiVersion: audit.k8s.io/v1
-kind: Policy
-rules:
-  - level: RequestResponse
-    verbs: ["create", "delete", "update", "patch", "get", "list"]
-    resources:
-      - group: ""
-        resources: ["pods", "secrets", "configmaps", "serviceaccounts", "roles", "rolebindings"]
-  - level: Metadata
-    resources:
-      - group: "*"
-        resources: ["*"]
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-root-fixed
+  namespace: audit-zone
+spec:
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 1000
+    seccompProfile:
+      type: RuntimeDefault
+  containers:
+    - name: nginx
+      image: nginxinc/nginx-unprivileged:latest
+      securityContext:
+        runAsNonRoot: true
+        allowPrivilegeEscalation: false
+        readOnlyRootFilesystem: true
+        capabilities:
+          drop: ["ALL"]
+        readOnlyRootFilesystem: true
+      volumeMounts:
+        - name: tmp-volume
+          mountPath: /tmp
+        - name: cache-volume
+          mountPath: /var/cache/nginx
+        - name: run-volume
+          mountPath: /var/run
+  volumes:
+    - name: tmp-volume
+      emptyDir: {}
+    - name: cache-volume
+      emptyDir: {}
+    - name: run-volume
+      emptyDir: {}
